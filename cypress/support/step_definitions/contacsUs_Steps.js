@@ -43,3 +43,17 @@ When(`I type a specific email address {string}`, (email) => {
 When(`I type a specific word {string} and number {long} within the comment input area`, (word, number) => {
   cy.get('textarea[name="message"]').type(word).type(number);
 })
+
+When(`I type a first name {word} and a last name {string}`, (firstName, lastName) => {
+  cy.get('[name="first_name"]').type(firstName);
+  cy.get('[name="last_name"]').type(lastName);
+})
+
+When(`I type an email address {string} and a comment {string}`, (email, comment) => {
+  cy.get('[name="email"]').type(email);
+  cy.get('textarea[name="message"]').type(comment)
+})
+
+Then(`I should be presented with header text {string}`, (message) => {
+  cy.xpath("//h1 | //body").contains(message); // dynamic selector using cypress-xpath
+})

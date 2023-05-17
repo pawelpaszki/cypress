@@ -28,3 +28,17 @@ Feature: WebdriverUniversity - Contact Us Page
     And I type a specific word "hello123" and number 6788 within the comment input area
     And I click on the submit button
     Then I should be presented with a successful contact us submission message
+
+  Scenario Outline: Validate contact us page
+    Given I navigate to the webdriver university homepage
+    When I click on the contact us button
+    And I type a first name <firstName> and a last name '<lastName>'
+    And I type an email address '<emailAddress>' and a comment '<comment>'
+    And I click on the submit button
+    Then I should be presented with header text '<message>'
+
+    Examples:
+      | firstName    | lastName | emailAddress    | comment            | message                      |
+      | John         | Johns   | johnj@gmail.com  | Hello how are you? | Thank You for your Message!  |
+      | Peter        | Jones   | pjones@gmail.com | Hello ser          | Thank You for your Message!  |
+      | John         | Doe     | john_doe         | Hello ser          | Error: Invalid email address |
