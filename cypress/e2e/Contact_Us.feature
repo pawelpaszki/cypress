@@ -1,9 +1,9 @@
+@contact-us @regression
 Feature: WebdriverUniversity - Contact Us Page
 
   Background: Preconditions
     Given I navigate to the webdriver university homepage
     When I click on the contact us button
-
 
   Scenario: Valid Contact Us Form Submission
     And I type a first name
@@ -28,6 +28,7 @@ Feature: WebdriverUniversity - Contact Us Page
     And I click on the submit button
     Then I should be presented with a successful contact us submission message
 
+  @smoke
   Scenario Outline: Validate contact us page
     And I type a first name <firstName> and a last name '<lastName>'
     And I type an email address '<emailAddress>' and a comment '<comment>'
@@ -35,7 +36,7 @@ Feature: WebdriverUniversity - Contact Us Page
     Then I should be presented with header text '<message>'
 
     Examples:
-      | firstName    | lastName | emailAddress    | comment            | message                      |
-      | John         | Johns   | johnj@gmail.com  | Hello how are you? | Thank You for your Message!  |
-      | Peter        | Jones   | pjones@gmail.com | Hello ser          | Thank You for your Message!  |
-      | John         | Doe     | john_doe         | Hello ser          | Error: Invalid email address |
+      | firstName | lastName | emailAddress     | comment            | message                      |
+      | John      | Johns    | johnj@gmail.com  | Hello how are you? | Thank You for your Message!  |
+      | Peter     | Jones    | pjones@gmail.com | Hello ser          | Thank You for your Message!  |
+      | John      | Doe      | john_doe         | Hello ser          | Error: Invalid email address |
