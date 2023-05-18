@@ -11,3 +11,9 @@ When(`I click on the contact us button`, () => {
   .invoke("removeAttr", "target") // remove target to prevent from opening in new tab
   .click()
 })
+
+When(`I click on the login portal button`, () => {
+  cy.get("#login-portal")
+  .invoke("removeAttr", "target") // remove target to prevent from opening in new tab
+  .click()
+})
